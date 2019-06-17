@@ -3,6 +3,10 @@
 This script can undo the triangulation/facetting that gets created when a 3d model is saved as an .stl file.  It is a conversion of some 
 Linuxcnc code to fit an arc to a series of points.  
 
+The example below shows a ring, 50mm in diameter with 45 facets...
+
+![Smoothing Example](bin/example.jpg)
+
 ## Limitations
 This will only work with 3d printers that support G2 and G3 (CW and CCW arc).  The latest Marlin based firmwares (Prusa printers) support this.
 
