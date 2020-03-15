@@ -318,13 +318,14 @@ be specified only when there is only movement on 2 axes
             if i > 0:
                 path_length = path_length + math.hypot(p[0] - path[i - 1][0], p[1] - path[i - 1][1])
 
-            if p[5] & 8 == 0: 
+            if not p is l1 and p[5] & 8 == 0:       # don't include extrusion of start point line.
                 if extrudeRelative:
                    extrusion_length = extrusion_length + p[3]
                 else:
                    extrusion_length = p[3]
 
-            if p is l1 or p is l2: continue
+            if p is l1 or p is l2: continue  # don't compute endpoints
+
             dist = dist_lseg(l1, l2, p)
             #log( "dist", i, p, dist )
             if dist > worst_dist:
