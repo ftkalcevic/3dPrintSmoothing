@@ -402,8 +402,15 @@ be specified only when there is only movement on 2 axes
         else:
             log("; line")
             last_path = []
-            last_path.append(["G1", path[0], None])
-            last_path.append(["G1", path[-1], None])
+            for p in path:
+                last_path.append(["G1", p, None])
+
+            #if len(path) > 2 and extrudeRelative:
+            #    last_path.append(["G1", path[0], None])
+            #    last_path.append(["G1", [path[-1][0],path[-1][1],path[-1][2],extrusion_length,path[-1][4],path[-1][5]], None])
+            #else:
+            #    last_path.append(["G1", path[0], None])
+            #    last_path.append(["G1", path[-1], None])
 
     if len(last_path) > 0:
         for p in last_path:

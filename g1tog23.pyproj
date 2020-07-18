@@ -13,7 +13,7 @@
     <RootNamespace>g1tog23</RootNamespace>
     <InterpreterId>Global|PythonCore|2.7</InterpreterId>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>"D:\GCode\test cup 2_0.15mm_PLA_MK2.5.gcode"</CommandLineArguments>
+    <CommandLineArguments>"D:\3dprinting\g1tog23\test.gcode" "D:\3dprinting\g1tog23\test.out.gcode"</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

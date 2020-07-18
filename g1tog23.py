@@ -219,12 +219,16 @@ class gcode(object):
 
 # Check command line for file name
 if len(sys.argv) > 1:
-    # input is file name
-    output_file = sys.argv[1]
-    input_file = output_file + ".bak"
-    if os.path.isfile(input_file):
-        os.remove( input_file )
-    os.rename( output_file, input_file )
+    if len(sys.argv) == 3:
+        input_file = sys.argv[1]
+        output_file = sys.argv[2]
+    else:
+        # input is file name
+        output_file = sys.argv[1]
+        input_file = output_file + ".bak"
+        if os.path.isfile(input_file):
+            os.remove( input_file )
+        os.rename( output_file, input_file )
     #output_file = "D:\\GCode\\test cup 2_0.15mm_PLA_MK2.5.arcs.gcode"
     #input_file = "D:\\GCode\\test cup 2_0.15mm_PLA_MK2.5.gcode"
     myfile = open(output_file, "w+")
