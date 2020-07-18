@@ -122,19 +122,21 @@ class gcode(object):
                     f = lastf
                     mask = mask | 16
 
-                # Feed rate change
-                if f != lastf:
-                    if len(st) > 0:
-                        self.simplifyPath(st)
-                        st = []
+                if mask == 0x1F:   # Only process G1 with data
 
-                st.append( [x,y,z,a,f,mask] )
+                    # Feed rate change
+                    if f != lastf:
+                        if len(st) > 0:
+                            self.simplifyPath(st)
+                            st = []
 
-                lastx = x
-                lasty = y
-                lastz = z
-                lasta = a
-                lastf = f
+                    st.append( [x,y,z,a,f,mask] )
+
+                    lastx = x
+                    lasty = y
+                    lastz = z
+                    lasta = a
+                    lastf = f
             else:
                 # any other move signifies the end of a list of line segments,
                 # so we simplify them.
