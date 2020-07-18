@@ -122,7 +122,7 @@ class gcode(object):
                     f = lastf
                     mask = mask | 16
 
-                if mask == 0x1F:   # Only process G1 with data
+                if mask <> 0x1F:   # Only process G1 with data
 
                     # Feed rate change
                     if f != lastf:
